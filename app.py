@@ -1,14 +1,11 @@
 from flask import Flask, jsonify, Response, make_response, request
 import requests
 from bs4 import BeautifulSoup
-import re
 import html
-import json
-import re
 
 app = Flask(__name__)
 
-@app.route("/getCADetails", methods=["POST"])
+@app.route("/api/v1/getCADetails", methods=["POST"])
 def getCADetails():
     try:
         membershipNumber = request.json.get("membershipNumber")

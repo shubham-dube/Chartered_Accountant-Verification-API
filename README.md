@@ -31,7 +31,7 @@ This API fetches Chartered Accountant Details with their Membership Number in JS
    
 3. Install the dependencies:
    ```bash
-   pip install flask requests bs4 re html
+   pip install flask requests bs4 html
 
 4. Run the Application:
    ```bash

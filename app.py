@@ -2,10 +2,12 @@ from flask import Flask, jsonify, Response, make_response, request
 import requests
 from bs4 import BeautifulSoup
 import html
+from asgiref.wsgi import WsgiToAsgi
 
 app = Flask(__name__)
+asgi_app = WsgiToAsgi(app)
 
-@app.route("/api/v1/getCADetails", methods=["POST"])
+@app.route("/api/v1/CA/getCADetails", methods=["POST"])
 def getCADetails():
     try:
         membershipNumber = request.json.get("membershipNumber")
@@ -75,4 +77,5 @@ def getCADetails():
 
 
 if __name__ == "__main__":
-    app.run()
+    import uvicorn
+    uvicorn.run(asgi_app, host='0.0.0.0', port=5001)
